@@ -1,0 +1,32 @@
+name: "Deploy to dokku"
+description: "Deploys your project to dokku."
+branding:
+  icon: "upload-cloud"
+  color: purple
+inputs:
+  dokku-deploy-key:
+    description: "Your ssh private key."
+    required: true
+  dokku-host:
+    description: "Dokku host."
+    required: true
+  dokku-app:
+    description: "Application name on dokku."
+    required: true
+  dokku-user:
+    description: "Username for dokku host."
+    required: false
+    default: "dokku"
+  force-push:
+    description: "Push flags for git."
+    required: false
+    default: false
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.dokku-deploy-key }}
+    - ${{ inputs.dokku-host }}
+    - ${{ inputs.dokku-app }}
+    - ${{ inputs.dokku-user }}
+    - ${{ inputs.force-push }}
