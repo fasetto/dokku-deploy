@@ -18,9 +18,9 @@ inputs:
     required: false
     default: "dokku"
   force-push:
-    description: "Forces git push command with --force flag. | default: false"
+    description: "Forces git push command with --force flag."
     required: false
-    default: false
+    default: "false"
 runs:
   using: "docker"
   image: "Dockerfile"
