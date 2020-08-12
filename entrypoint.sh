@@ -24,7 +24,7 @@ GIT_CMD="git push dokku master"
 
 if [ "$FORCE_PUSH" == true ]; then
     echo "Enabled force push."
-    git_cmd="git push dokku master --force"
+    GIT_CMD="git push dokku master --force"
 fi
 
 echo "Deploy started."
