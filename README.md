@@ -3,11 +3,9 @@
 
 ## What does this action do?
 
-:bulb: Deploys your project to dokku.
+:rocket: Deploys your project to dokku.
 
 ## Usage
-
-:bulb: Read more about [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow).
 
 ### Arguments
 
@@ -20,6 +18,10 @@
 | `force-push` | false | Forces git push command with --force flag. | default: false |
 
 <br>
+
+Following example triggers when a pull request closed. But if PR is not merged, then `deploy` job won't run.
+
+:bulb: Read more about [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow).
 
 ```yaml
 name: "Deploy to dokku"
