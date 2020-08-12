@@ -6,22 +6,27 @@ DOKKU_APP=$3
 DOKKU_USER=$4
 FORCE_PUSH=$5
 
-# Setup ssh environment
+echo "Setting up ssh environment."
+
 mkdir -p ~/.ssh
 eval `ssh-agent -s`
 ssh-add - <<< $DEPLOY_KEY
 ssh-keyscan $DOKKU_HOST >> ~/.ssh/known_hosts
 
+echo "Preparing to push."
 repo="$DOKKU_USER@$DOKKU_HOST:$DOKKU_APP"
 
 cd $GITHUB_WORKSPACE
 
 git remote add dokku $repo
 
+GIT_CMD="git push dokku master"
+
 if [ "$FORCE_PUSH" == true ]; then
-    git push dokku master -f
-else
-    git push dokku master
+    echo "Enabled force push."
+    git_cmd="git push dokku master --force"
 fi
 
-exit 0
+echo "Deploy started."
+
+GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" $GIT_CMD
