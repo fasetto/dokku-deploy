@@ -5,7 +5,7 @@ branding:
   color: purple
 inputs:
   dokku-deploy-key:
-    description: "Your ssh private key."
+    description: "SSH private key to dokku instance."
     required: true
   dokku-host:
     description: "Dokku host."
@@ -18,7 +18,7 @@ inputs:
     required: false
     default: "dokku"
   force-push:
-    description: "Push flags for git."
+    description: "Forces git push command with --force flag. | default: false"
     required: false
     default: false
 runs:
