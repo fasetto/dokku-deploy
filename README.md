@@ -41,7 +41,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: "Deploy to dokku"
-        uses: fasetto/dokku-deploy@v1
+        uses: fasetto/dokku-deploy@master
         with:
           dokku-deploy-key: ${{ secrets.DOKKU_DEPLOY_KEY }}
           dokku-host: "your-dokku-host.com"
